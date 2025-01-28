@@ -1,3 +1,4 @@
+import { IconContext } from 'react-icons';
 import { FaRegThumbsUp } from 'react-icons/fa';
 import { MdPeople, MdOutlineProductionQuantityLimits } from 'react-icons/md';
 import { GiTreeDoor } from 'react-icons/gi';
@@ -14,7 +15,9 @@ const Statistics = ({ title, stats }) => {
         {stats.map((item, index) => {
           return (
             <li key={item.id} className={style.item}>
-            <StatisticsItem logo={logoList[index]} data={item.total} dataName={item.title} />
+              <IconContext.Provider value={{size: "30px"}}>
+                <StatisticsItem logo={logoList[index]} data={item.total} dataName={item.title} />
+              </IconContext.Provider>
             </li>
           )
         })}
